@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Default sylization -->
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./Pages/Register/registerStyle.css" />
+    <!-- Needed libraries -->
+    <script type="module" src="./Pages/Register/script.js"></script>
+    <title>Document</title>
+  </head>
+  <body class="container">
+    <div class="register-container">
+      <!-- Left Image Section -->
+      <div class="image-section">
+        <img src="./assets/registerbg.jpeg" alt="Login Image" class="image" />
+      </div>
+
+      <!-- Right Login Form Section -->
+      <div class="form-section">
+        <h2 class="title">Register</h2>
+        <form class="form" id="register-form">
+          <div class="names">
+            <div class="input-div userName">
+              <label class="label">Name</label>
+              <input
+                type="text"
+                class="input"
+                placeholder="Enter your name"
+                id="userName"
+                name="userName"
+              />
+            </div>
+            <div class="input-div userLastName">
+              <label class="label">Last Name</label>
+              <input
+                type="text"
+                class="input"
+                placeholder="Enter your last name"
+                id="userLastName"
+                name="userLastName"
+              />
+            </div>
+          </div>
+          <div class="input-div email">
+            <label class="label">Email</label>
+            <input
+              type="email"
+              class="input"
+              placeholder="Enter your email"
+              id="email"
+              name="email"
+            />
+          </div>
+          <div class="input-div passwords">
+            <div class="input-div password">
+              <label class="label">Password</label>
+              <input
+                type="password"
+                class="input"
+                placeholder="Enter your password"
+                id="password"
+                name="password"
+              />
+            </div>
+            <div class="input-div confirmPassword">
+              <label class="label">Confirm Password</label>
+              <input
+                type="password"
+                class="input"
+                placeholder="Confirm password"
+                id="confirmPassword"
+                name="confirmPassword"
+              />
+            </div>
+          </div>
+          <button class="button">Register</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

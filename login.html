@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Default sylization -->
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./Pages/Login/loginStyle.css" />
+    <!-- Needed libraries -->
+    <script type="module" src="./Pages/Login/script.js"></script>
+    <title>Document</title>
+  </head>
+  <body class="container">
+    <div class="login-container">
+      <!-- Left Image Section -->
+      <div class="image-section">
+        <img src="./assets/loginbg.jpeg" alt="Login Image" class="image" />
+      </div>
+
+      <!-- Right Login Form Section -->
+      <div class="form-section">
+        <h2 class="title">Login</h2>
+        <div class="form">
+          <form class="form" id="login-form">
+            <div class="input-div email">
+              <label class="label">Email</label>
+              <input
+                type="email"
+                class="input"
+                placeholder="Enter your email"
+                name="email"
+              />
+            </div>
+            <div class="input-div password">
+              <label class="label">Password</label>
+              <input
+                type="password"
+                class="input"
+                placeholder="Enter your password"
+                name="password"
+              />
+            </div>
+            <button class="button">Login</button>
+          </form>
+        </div>
+
+        <p class="text">
+          Don't have an account?
+          <a href="../Register/register.html" class="link">Sign up</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
