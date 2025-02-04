@@ -254,6 +254,7 @@ body {
   color: green
 }
 
+/* Adding style to button */
 .flat-price-and-fav button {
   border: none;
   background-color: dodgerblue;
