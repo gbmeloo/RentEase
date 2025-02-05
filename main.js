@@ -2,9 +2,13 @@ import Header from "./Components/Header.js";
 import { flats } from "./Tools/Flats.js";
 import { search } from "./Tools/Search.js";
 
-const userData = JSON.parse(localStorage.getItem(JSON.parse(sessionStorage.getItem("email")).email));
+const sessionData = JSON.parse(sessionStorage.getItem("email"));
 
-console.log(userData);
+console.log(sessionData);
+const userData = sessionData ? JSON.parse(localStorage.getItem(sessionData.email)) : "";
+
+
+
 
 document.addEventListener("DOMContentLoaded", (e) => {
   var header = new Header(userData);
@@ -163,10 +167,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
       </svg>
       `;
       favButton.innerHTML = favSvg;
-      // Check if the flat is in favourites and update the SVG color
-      if (userData.favourites.includes(flat.id)) {
-        favButton.querySelector(".fav-icon").style.fill = "rgb(0, 62, 149)"; // Change fill color
-      }
 
       favButton.addEventListener("click", (e) => {
         if (!userData.favourites.includes(flat.id)) {
@@ -177,6 +177,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
           const index = userData.favourites.indexOf(flat.id);
           userData.favourites.splice(index, 1);
           favButton.querySelector(".fav-icon").style.fill = "none"; // Reset fill color when removed from favourites
+          // Check if the flat is in favourites and update the SVG color
+          if (userData.favourites.includes(flat.id)) {
+            favButton.querySelector(".fav-icon").style.fill = "rgb(0, 62, 149)"; // Change fill color
+          }
         }
       });
 
@@ -195,7 +199,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
       favButton.addEventListener("click", () => {
         if (!userData) {
-          window.location.href = "./Pages/Login/login.html";
+          window.location.href = "./login.html";
         }
       });
 
