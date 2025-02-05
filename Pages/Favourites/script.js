@@ -2,7 +2,8 @@ import Header from "../../Components/Header.js";
 import { flats } from "../../Tools/Flats.js";
 import { search } from "../../Tools/Search.js"  
 
-const userData = JSON.parse(localStorage.getItem(JSON.parse(sessionStorage.getItem("email")).email));
+const sessionData = JSON.parse(sessionStorage.getItem("email"));
+const userData = sessionData ? JSON.parse(localStorage.getItem(sessionData.email)) : "";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   var header = new Header(userData);
@@ -10,9 +11,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
   let flatsListDiv = document.getElementsByClassName("flats-list")[0];
 
   // Listing favourites
-  let userFavourites = localStorage.getItem(userData.email);
+  let userFavourites = userData.favourites;
   const userFlatsFavourites = flats.filter((flat) => userFavourites.includes(flat.id));
-  console.log(userFlatsFavourites);
 
   // Log out function
   if (document.getElementById("log-out")) {
@@ -166,6 +166,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
       </svg>
       `;
       favButton.innerHTML = favSvg;
+
       // Check if the flat is in favourites and update the SVG color
       if (userData.favourites.includes(flat.id)) {
         favButton.querySelector(".fav-icon").style.fill = "rgb(0, 62, 149)"; // Change fill color
@@ -174,13 +175,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
       favButton.addEventListener("click", (e) => {
         if (userData.favourites.includes(flat.id)) {
           userData.favourites = userData.favourites.filter(obj => obj !== flat.id);
-          console.log(userData.favourites);
+          // console.log(userData.favourites);
           localStorage.setItem(userData.email, JSON.stringify(userData));
-        //   window.location.reload();
-        console.log(userData.favourites.filter(obj => obj !== flat.id))
+          window.location.reload();
         } else {
           const index = userData.favourites.indexOf(flat.id);
           userData.favourites.splice(index, 1);
+          localStorage.setItem(userData.email, JSON.stringify(userData));
           favButton.querySelector(".fav-icon").style.fill = "none"; // Reset fill color when removed from favourites
         }
       });

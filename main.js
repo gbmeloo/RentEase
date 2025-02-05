@@ -3,11 +3,7 @@ import { flats } from "./Tools/Flats.js";
 import { search } from "./Tools/Search.js";
 
 const sessionData = JSON.parse(sessionStorage.getItem("email"));
-
-console.log(sessionData);
 const userData = sessionData ? JSON.parse(localStorage.getItem(sessionData.email)) : "";
-
-
 
 
 document.addEventListener("DOMContentLoaded", (e) => {
@@ -168,6 +164,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
       `;
       favButton.innerHTML = favSvg;
 
+      // Check if the flat is in favourites and update the SVG color
+      if (userData.favourites.includes(flat.id)) {
+        favButton.querySelector(".fav-icon").style.fill = "rgb(0, 62, 149)"; // Change fill color
+      }
+
       favButton.addEventListener("click", (e) => {
         if (!userData.favourites.includes(flat.id)) {
           userData.favourites.push(flat.id);
@@ -176,11 +177,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
         } else {
           const index = userData.favourites.indexOf(flat.id);
           userData.favourites.splice(index, 1);
+          localStorage.setItem(userData.email, JSON.stringify(userData));
           favButton.querySelector(".fav-icon").style.fill = "none"; // Reset fill color when removed from favourites
-          // Check if the flat is in favourites and update the SVG color
-          if (userData.favourites.includes(flat.id)) {
-            favButton.querySelector(".fav-icon").style.fill = "rgb(0, 62, 149)"; // Change fill color
-          }
         }
       });
 
