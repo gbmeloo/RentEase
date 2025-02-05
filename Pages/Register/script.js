@@ -6,6 +6,7 @@ class UserStorage {
     this.name = name;
     this.lastName = lastName;
     this.password = password;
+    this.favourites = [];
   }
 
   save() {
@@ -54,5 +55,6 @@ document.getElementById("register-form").addEventListener("submit", (e) => {
   } else {
     let storage = new UserStorage(email, name, lastName, password);
     storage.save();
+    window.location.href("./login");
   }
 });

@@ -153,4 +153,118 @@ export const flats = [
     "2025-03-12",
     ["./assets/flatImages/10/1.jpg", "./assets/flatImages/10/2.jpg"]
   ),
+  // Toronto Flats
+  new Flat(11, "Toronto", "Yonge St", 123, 85, true, 2010, 2800, "2025-03-15", [
+    "./assets/flatImages/11/1.jpg",
+    "./assets/flatImages/11/2.jpg",
+    "./assets/flatImages/11/3.jpg",
+  ]),
+  new Flat(
+    12,
+    "Toronto",
+    "Queen St W",
+    456,
+    90,
+    false,
+    2015,
+    2600,
+    "2025-04-01",
+    ["./assets/flatImages/12/1.jpg", "./assets/flatImages/12/2.jpg"]
+  ),
+  new Flat(13, "Toronto", "Bloor St", 789, 75, true, 2008, 2400, "2025-03-20", [
+    "./assets/flatImages/13/1.jpg",
+    "./assets/flatImages/13/2.jpg",
+  ]),
+  new Flat(
+    14,
+    "Toronto",
+    "King St E",
+    101,
+    100,
+    false,
+    2020,
+    3000,
+    "2025-02-28",
+    [
+      "./assets/flatImages/14/1.jpg",
+      "./assets/flatImages/14/2.jpg",
+      "./assets/flatImages/14/3.jpg",
+    ]
+  ),
+
+  // Montreal Flats
+  new Flat(
+    15,
+    "Montreal",
+    "Saint-Laurent Blvd",
+    202,
+    80,
+    true,
+    2012,
+    1800,
+    "2025-03-10",
+    ["./assets/flatImages/15/1.jpg", "./assets/flatImages/15/2.jpg"]
+  ),
+  new Flat(
+    16,
+    "Montreal",
+    "Sherbrooke St",
+    303,
+    95,
+    false,
+    2018,
+    2000,
+    "2025-04-05",
+    ["./assets/flatImages/16/1.jpg", "./assets/flatImages/16/2.jpg"]
+  ),
+  new Flat(
+    17,
+    "Montreal",
+    "Rue Sainte-Catherine",
+    404,
+    70,
+    true,
+    2005,
+    1600,
+    "2025-03-25",
+    ["./assets/flatImages/17/1.jpg", "./assets/flatImages/17/2.jpg"]
+  ),
+
+  // Quebec Flats
+  new Flat(
+    18,
+    "Quebec",
+    "Rue Saint-Jean",
+    505,
+    88,
+    true,
+    2010,
+    1500,
+    "2025-03-18",
+    ["./assets/flatImages/18/1.jpg", "./assets/flatImages/18/2.jpg"]
+  ),
+  new Flat(
+    19,
+    "Quebec",
+    "Grande Allée",
+    606,
+    110,
+    false,
+    2015,
+    1700,
+    "2025-04-10",
+    ["./assets/flatImages/19/1.jpg", "./assets/flatImages/19/2.jpg"]
+  ),
+  new Flat(
+    20,
+    "Quebec",
+    "Rue Saint-Louis",
+    707,
+    65,
+    true,
+    2000,
+    1400,
+    "2025-03-30",
+    ["./assets/flatImages/20/1.jpg", "./assets/flatImages/20/2.jpg"]
+  ),
 ];

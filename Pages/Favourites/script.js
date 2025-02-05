@@ -1,15 +1,18 @@
-import Header from "./Components/Header.js";
-import { flats } from "./Tools/Flats.js";
-import { search } from "./Tools/Search.js";
+import Header from "../../Components/Header.js";
+import { flats } from "../../Tools/Flats.js";
+import { search } from "../../Tools/Search.js"  
 
 const userData = JSON.parse(localStorage.getItem(JSON.parse(sessionStorage.getItem("email")).email));
-
-console.log(userData);
 
 document.addEventListener("DOMContentLoaded", (e) => {
   var header = new Header(userData);
   header.render();
   let flatsListDiv = document.getElementsByClassName("flats-list")[0];
+
+  // Listing favourites
+  let userFavourites = localStorage.getItem(userData.email);
+  const userFlatsFavourites = flats.filter((flat) => userFavourites.includes(flat.id));
+  console.log(userFlatsFavourites);
 
   // Log out function
   if (document.getElementById("log-out")) {
@@ -22,7 +25,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   // Pagination variables
   let currentPage = 1;
   const flatsPerPage = 10;
-  const totalPages = Math.ceil(flats.length / flatsPerPage);
+  const totalPages = Math.ceil(userFlatsFavourites.length / flatsPerPage);
 
   // Function to display flats for the current page
   const displayFlats = (page) => {
@@ -32,7 +35,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // Calculate the start and end index for the current page
     const startIndex = (page - 1) * flatsPerPage;
     const endIndex = startIndex + flatsPerPage;
-    const flatsToDisplay = flats.slice(startIndex, endIndex);
+    const flatsToDisplay = userFlatsFavourites.slice(startIndex, endIndex);
 
     // Render flats for the current page
     flatsToDisplay.forEach((flat) => {
@@ -169,10 +172,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
       }
 
       favButton.addEventListener("click", (e) => {
-        if (!userData.favourites.includes(flat.id)) {
-          userData.favourites.push(flat.id);
+        if (userData.favourites.includes(flat.id)) {
+          userData.favourites = userData.favourites.filter(obj => obj !== flat.id);
+          console.log(userData.favourites);
           localStorage.setItem(userData.email, JSON.stringify(userData));
-          favButton.querySelector(".fav-icon").style.fill = "rgb(0, 62, 149)";
+        //   window.location.reload();
+        console.log(userData.favourites.filter(obj => obj !== flat.id))
         } else {
           const index = userData.favourites.indexOf(flat.id);
           userData.favourites.splice(index, 1);
@@ -210,13 +215,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const paginationDiv = document.getElementById("pagination-controls");
     if (!paginationDiv) return;
 
-    paginationDiv.innerHTML = `<button id="prev-page" ${
-      currentPage === 1 ? "disabled" : ""
-    }>Previous</button>
+    paginationDiv.innerHTML = 
+       `<button id="prev-page" ${currentPage === 1 ? "disabled" : ""}>Previous</button>
         <span>Page ${currentPage} of ${totalPages}</span>
-        <button id="next-page" ${
-          currentPage === totalPages ? "disabled" : ""
-        }>Next</button>`;
+        <button id="next-page" ${currentPage === totalPages ? "disabled" : ""}>Next</button>`;
 
     // Add event listeners for pagination buttons
     document.getElementById("prev-page").addEventListener("click", () => {
