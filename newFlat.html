@@ -8,113 +8,108 @@
     <link rel="stylesheet" href="./Pages/NewFlat/style.css" />
     <!-- Needed libraries -->
     <script type="module" src="./Pages/NewFlat/script.js"></script>
-    <title>Document</title>
+    <title>RentEase: New flat</title>
   </head>
   <body class="container">
     <div class="register-container">
-      <div class="form-section">
-        <h2 class="title">Register</h2>
-        <form class="form" id="flat-form">
-          <div class="info">
-            <div class="input-div city">
-              <label class="label">City</label>
-              <input
-                type="text"
-                class="input"
-                placeholder="Enter the city"
-                id="city"
-                name="city"
-              />
-            </div>
-            <div class="input-div streetName">
-              <label class="label">Street Name</label>
-              <input
-                type="text"
-                class="input"
-                placeholder="Enter the street name"
-                id="streetName"
-                name="streetName"
-              />
-            </div>
-            <div class="input-div streetNumber">
-              <label class="label">Street number</label>
-              <input
-                type="number"
-                class="input"
-                placeholder="Enter the street number"
-                id="streetNumber"
-                name="streetNumber"
-                value=""
-              />
-            </div>
-          </div>
-          <div class="input-div areaSize">
-            <label class="label">Area size</label>
+      <h2 class="title">Register flat</h2>
+      <form class="form" id="flat-form">
+        <div class="info">
+          <div class="input-div city">
+            <label class="label">City</label>
             <input
               type="text"
               class="input"
-              placeholder="Enter the area size (m²)"
-              id="areaSize"
-              name="areaSize"
+              placeholder="Enter the city"
+              id="city"
+              name="city"
             />
           </div>
-          <div class="input-div hasAC">
-            <label class="label">Has Air Conditioning?</label>
-            <div class="radio-options">
-              <label>
-                <input
-                  type="radio"
-                  id="hasAC-yes"
-                  name="hasAC"
-                  value="true"
-                  checked
-                />
-                Yes
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  id="hasAC-no"
-                  name="hasAC"
-                  value="false"
-                />
-                No
-              </label>
-            </div>
+          <div class="input-div streetName">
+            <label class="label">Street Name</label>
+            <input
+              type="text"
+              class="input"
+              placeholder="Enter the street name"
+              id="streetName"
+              name="streetName"
+            />
           </div>
-          <div class="input-div yearBuilt">
-            <label class="label">Year Built</label>
+          <div class="input-div streetNumber">
+            <label class="label">Street number</label>
             <input
               type="number"
               class="input"
-              placeholder="Enter the year built"
-              id="yearBuilt"
-              name="yearBuilt"
+              placeholder="Enter the street number"
+              id="streetNumber"
+              name="streetNumber"
+              value=""
             />
           </div>
-          <div class="input-div rentPrice">
-            <label class="label">Rent price</label>
-            <input
-              type="number"
-              class="input"
-              placeholder="Enter rent price"
-              id="rentPrice"
-              name="rentPrice"
-            />
+        </div>
+        <div class="input-div areaSize">
+          <label class="label">Area size</label>
+          <input
+            type="text"
+            class="input"
+            placeholder="Enter the area size (m²)"
+            id="areaSize"
+            name="areaSize"
+          />
+        </div>
+        <div class="input-div hasAC">
+          <label class="label">Has Air Conditioning?</label>
+          <div class="radio-options">
+            <label>
+              <input
+                type="radio"
+                id="hasAC-yes"
+                name="hasAC"
+                value="true"
+                checked
+              />
+              Yes
+            </label>
+            <label>
+              <input type="radio" id="hasAC-no" name="hasAC" value="false" />
+              No
+            </label>
           </div>
-          <div class="input-div dateAvailble">
-            <label class="label">Date available</label>
-            <input
-              type="date"
-              class="input"
-              placeholder="Enter the available date"
-              id="dateAvailable"
-              name="dateAvailable"
-            />
-          </div>
+        </div>
+        <div class="input-div yearBuilt">
+          <label class="label">Year Built</label>
+          <input
+            type="number"
+            class="input"
+            placeholder="Enter the year built"
+            id="yearBuilt"
+            name="yearBuilt"
+          />
+        </div>
+        <div class="input-div rentPrice">
+          <label class="label">Rent price</label>
+          <input
+            type="number"
+            class="input"
+            placeholder="Enter rent price"
+            id="rentPrice"
+            name="rentPrice"
+          />
+        </div>
+        <div class="input-div dateAvailble">
+          <label class="label">Date available</label>
+          <input
+            type="date"
+            class="input"
+            placeholder="Enter the available date"
+            id="dateAvailable"
+            name="dateAvailable"
+          />
+        </div>
+        <div class="submit-button">
           <button class="button">Publish</button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </body>
 </html>

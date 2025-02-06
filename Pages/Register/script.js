@@ -45,7 +45,7 @@ document.getElementById("register-form").addEventListener("submit", (e) => {
   const email = e.target.elements.email.value;
   const name = e.target.elements.userName.value;
   const lastName = e.target.elements.userLastName.value;
-  const birthDate = e.target.elements.birthdate.value;
+  const birthDate = new Date(e.target.elements.birthdate.value);
   const password = e.target.elements.password.value;
   const confirmPassword = e.target.elements.confirmPassword.value;
 

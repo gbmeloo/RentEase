@@ -4,35 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="main.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>RentEase: Easy rent for you!</title>
   </head>
   <body>
     <section class="search">
-      <div class="search-div">
-        <form class="search-form" id="searchForm">
-          <div class="search-box-within">
-            <div class="search-box">
-              <div class="city-area-size">
-                <input type="text" id="city" name="city" placeholder="City" />
-                <input type="text" id="area" name="area" placeholder="Area size (m²)" />
-              </div>
-              <div class="price-range">
-                <input type="text" id="minPrice" name="minPrice" placeholder="Minimum price" />
-                <input type="text" id="maxPrice" name="maxPrice" placeholder="Maximum price" />
-              </div>
-            </div>
-            <div class="search-button">
-              <input type="submit" value="Filter"/>
-            </div>
+      <form class="search-form" id="searchForm">
+        <div class="search-box">
+          <div class="city-area-size">
+            <input type="text" id="city" name="city" placeholder="City" />
+            <input
+              type="text"
+              id="area"
+              name="area"
+              placeholder="Area size (m²)"
+            />
           </div>
-        </form>
-      </div>
+          <div class="price-range">
+            <input
+              type="text"
+              id="minPrice"
+              name="minPrice"
+              placeholder="Minimum price"
+            />
+            <input
+              type="text"
+              id="maxPrice"
+              name="maxPrice"
+              placeholder="Maximum price"
+            />
+          </div>
+        </div>
+        <div class="search-button">
+          <input type="submit" value="Filter" />
+        </div>
+      </form>
     </section>
     <div class="page-title">
       <h2>All flats</h2>
     </div>
-    <hr style="max-width: 940px;">
+    <hr style="max-width: 940px" />
     <section class="flats">
       <div class="flats-list"></div>
     </section>

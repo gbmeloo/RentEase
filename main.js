@@ -190,12 +190,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
       flatRentPrice.textContent = "CA$" + flat.rentPrice;
       flatPriceAndFav.appendChild(flatRentPrice);
 
-      // let seeMoreButton = document.createElement("button");
-      // seeMoreButton.classList.add("see-more-button");
-      // seeMoreButton.textContent = "See More";
-      // seeMoreButton.href = "./seeMore.html";
-      // flatPriceAndFav.appendChild(seeMoreButton);
-
       favButton.addEventListener("click", () => {
         if (!userData) {
           window.location.href = "./login.html";
@@ -215,11 +209,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     paginationDiv.innerHTML = `<button id="prev-page" ${
       currentPage === 1 ? "disabled" : ""
-    }>Previous</button>
-        <span>Page ${currentPage} of ${totalPages}</span>
+    }>◄</button>
+        <span>${currentPage} of ${totalPages}</span>
         <button id="next-page" ${
           currentPage === totalPages ? "disabled" : ""
-        }>Next</button>`;
+        }>►</button>`;
 
     // Add event listeners for pagination buttons
     document.getElementById("prev-page").addEventListener("click", () => {
@@ -245,6 +239,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   const searchForm = document.getElementById("searchForm");
 
+  // Search function
   searchForm.addEventListener("submit", e => {
     e.preventDefault();
 
@@ -253,7 +248,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const minPrice = e.target.elements.minPrice.value ? parseFloat(e.target.elements.minPrice.value) : null;
     const maxPrice = e.target.elements.maxPrice.value ? parseFloat(e.target.elements.maxPrice.value) : null;
   
-    // Filter all criteria in one go
+    // Filter all criteria
     filteredFlats = flats.filter(flat => {
       const matchesCity = city ? flat.city.toLowerCase().includes(city) : true;
       const matchesArea = area ? parseInt(flat.areaSize) <= area : true;
@@ -268,6 +263,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // Reset to the first page after filtering
     currentPage = 1;
 
+    // Render query to update flats list
     displayFlats(currentPage);
     updatePaginationControls();
   });

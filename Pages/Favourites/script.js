@@ -192,11 +192,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
       flatRentPrice.textContent = "CA$" + flat.rentPrice;
       flatPriceAndFav.appendChild(flatRentPrice);
 
-      let seeMoreButton = document.createElement("button");
-      seeMoreButton.classList.add("see-more-button");
-      seeMoreButton.textContent = "See More";
-      seeMoreButton.href = "./seeMore.html";
-      flatPriceAndFav.appendChild(seeMoreButton);
+      // let seeMoreButton = document.createElement("button");
+      // seeMoreButton.classList.add("see-more-button");
+      // seeMoreButton.textContent = "See More";
+      // seeMoreButton.href = "./seeMore.html";
+      // flatPriceAndFav.appendChild(seeMoreButton);
 
       favButton.addEventListener("click", () => {
         if (!userData) {
@@ -216,9 +216,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
     if (!paginationDiv) return;
 
     paginationDiv.innerHTML = 
-       `<button id="prev-page" ${currentPage === 1 ? "disabled" : ""}>Previous</button>
+       `<button id="prev-page" ${currentPage === 1 ? "disabled" : ""}>◄</button>
         <span>Page ${currentPage} of ${totalPages}</span>
-        <button id="next-page" ${currentPage === totalPages ? "disabled" : ""}>Next</button>`;
+        <button id="next-page" ${currentPage === totalPages ? "disabled" : ""}>►</button>`;
 
     // Add event listeners for pagination buttons
     document.getElementById("prev-page").addEventListener("click", () => {
