@@ -13,6 +13,7 @@ export default class Header {
       this.menuItems = [
         { content: "Favourites", href: "./favourites.html" },
         { content: "Settings", href: "./settings.html" },
+        { content: "New Flat", href: "./newFlat.html" },
       ];
     } else {
       this.items = [

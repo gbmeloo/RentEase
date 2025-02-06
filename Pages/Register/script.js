@@ -1,11 +1,12 @@
 import Header from "../../Components/Header.js";
 
 class UserStorage {
-  constructor(email, name, lastName, password) {
+  constructor(email, name, lastName, password, birthDate) {
     this.email = email;
     this.name = name;
     this.lastName = lastName;
     this.password = password;
+    this.birthDate = birthDate;
     this.favourites = [];
   }
 
@@ -19,11 +20,6 @@ header.render();
 
 document.getElementById("register-form").addEventListener("submit", (e) => {
   e.preventDefault();
-
-  const existingEmailError = document.getElementById("emaiErrMsg");
-  if (existingEmailError) {
-    existingEmailError.remove();
-  }
   
   const existingPasswordError = document.getElementById("passwordErrorMessage");
   if (existingPasswordError) {
@@ -35,10 +31,21 @@ document.getElementById("register-form").addEventListener("submit", (e) => {
     existingNameErrMsg.remove();
   }
 
+  const existingbirthErrMsg = document.getElementById("birthErrMsg");
+  if (existingbirthErrMsg ) {
+    existingbirthErrMsg .remove();
+  }
+
+  const existingEmailError = document.getElementById("emailErrMsg");
+  if (existingEmailError) {
+    existingEmailError.remove();
+  }
+
 
   const email = e.target.elements.email.value;
   const name = e.target.elements.userName.value;
   const lastName = e.target.elements.userLastName.value;
+  const birthDate = e.target.elements.birthdate.value;
   const password = e.target.elements.password.value;
   const confirmPassword = e.target.elements.confirmPassword.value;
 
@@ -83,7 +90,17 @@ document.getElementById("register-form").addEventListener("submit", (e) => {
     const lastNameDiv = document.getElementsByClassName("userLastName")[0];
     lastNameDiv.appendChild(nameErrMsg);
     return;
-  } else if (localStorage.getItem(email) || !email) {
+  } else if (!birthDate) {
+    const birthErrMsg = document.createElement("p");
+    birthErrMsg.textContent = "Birth date can't be empty";
+    birthErrMsg.id = "birthErrMsg";
+    birthErrMsg.style.color = "red";
+    birthErrMsg.style.fontSize = "12px";
+    const birthDateDiv = document.getElementsByClassName("birthDate")[0];
+    birthDateDiv.appendChild(birthErrMsg);
+    return;
+  } 
+  else if (localStorage.getItem(email) || !email) {
     const emailErrMsg = document.createElement("p");
     emailErrMsg.textContent = localStorage.getItem(email) ? "Email address already registered" : "";
     emailErrMsg.id = "emailErrMsg";
@@ -123,9 +140,9 @@ document.getElementById("register-form").addEventListener("submit", (e) => {
     return;
   } 
   else {
-    let storage = new UserStorage(email, name, lastName, password);
+    let storage = new UserStorage(email, name, lastName, password, birthDate);
     storage.save();
-    window.location.href("./login");
+    window.location.href = "./login.html";
     return;
   }
 });

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Default sylization -->
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./Pages/NewFlat/newFlatStyle.css" />
+    <!-- Needed libraries -->
+    <script type="module" src="./Pages/NewFlat/script.js"></script>
+    <title>Document</title>
+  </head>
+  <body class="container">
+    <div class="register-container">
+      <div class="form-section">
+        <h2 class="title">Register</h2>
+        <form class="form" id="register-form">
+          <div class="info">
+            <div class="input-div city">
+              <label class="label">City</label>
+              <input
+                type="text"
+                class="input"
+                placeholder="Enter the city"
+                id="city"
+                name="city"
+              />
+            </div>
+            <div class="input-div streetName">
+              <label class="label">Street Name</label>
+              <input
+                type="text"
+                class="input"
+                placeholder="Enter the street name"
+                id="streetName"
+                name="streetName"
+              />
+            </div>
+            <div class="input-div streetNumber">
+              <label class="label">Street number</label>
+              <input
+                type="number"
+                class="input"
+                placeholder="Enter the street number"
+                id="streetNumber"
+                name="streetNumber"
+                value=""
+              />
+            </div>
+          </div>
+          <div class="input-div areaSize">
+            <label class="label">Area size</label>
+            <input
+              type="text"
+              class="input"
+              placeholder="Enter the area size (m²)"
+              id="areaSize"
+              name="areaSize"
+            />
+          </div>
+          <div class="input-div yearBuilt">
+            <label class="label">yearBuilt</label>
+            <input
+              type="number"
+              class="input"
+              placeholder="Enter the year built"
+              id="password"
+              name="password"
+            />
+          </div>
+          <div class="input-div rentPrice">
+            <label class="label">Date available</label>
+            <input
+              type="number"
+              class="input"
+              placeholder="Enter the available date"
+              id="rentPrice"
+              name="rentPrice"
+            />
+          </div>
+          <div class="input-div images">
+            <label class="label">Images</label>
+            <input
+              type="file"
+              class="input"
+              placeholder="Get images"
+              id="images"
+              name="images"
+            />
+          </div>
+          <button class="button">Publish</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

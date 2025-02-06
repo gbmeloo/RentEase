@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   var header = new Header(userData);
   header.render();
   let flatsListDiv = document.getElementsByClassName("flats-list")[0];
+  let filteredFlats = flats;
 
   // Log out function
   if (document.getElementById("log-out")) {
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
   // Pagination variables
   let currentPage = 1;
   const flatsPerPage = 10;
-  const totalPages = Math.ceil(flats.length / flatsPerPage);
+  let totalPages = Math.ceil(flats.length / flatsPerPage);
 
   // Function to display flats for the current page
   const displayFlats = (page) => {
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     // Calculate the start and end index for the current page
     const startIndex = (page - 1) * flatsPerPage;
     const endIndex = startIndex + flatsPerPage;
-    const flatsToDisplay = flats.slice(startIndex, endIndex);
+    const flatsToDisplay = filteredFlats.slice(startIndex, endIndex);
 
     // Render flats for the current page
     flatsToDisplay.forEach((flat) => {
@@ -191,11 +192,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
       flatRentPrice.textContent = "CA$" + flat.rentPrice;
       flatPriceAndFav.appendChild(flatRentPrice);
 
-      let seeMoreButton = document.createElement("button");
-      seeMoreButton.classList.add("see-more-button");
-      seeMoreButton.textContent = "See More";
-      seeMoreButton.href = "./seeMore.html";
-      flatPriceAndFav.appendChild(seeMoreButton);
+      // let seeMoreButton = document.createElement("button");
+      // seeMoreButton.classList.add("see-more-button");
+      // seeMoreButton.textContent = "See More";
+      // seeMoreButton.href = "./seeMore.html";
+      // flatPriceAndFav.appendChild(seeMoreButton);
 
       favButton.addEventListener("click", () => {
         if (!userData) {
@@ -243,4 +244,33 @@ document.addEventListener("DOMContentLoaded", (e) => {
   // Initial render
   displayFlats(currentPage);
   updatePaginationControls();
+
+  const searchForm = document.getElementById("searchForm");
+
+  searchForm.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const city = e.target.elements.city.value.toLowerCase();
+    const area = e.target.elements.area.value ? parseFloat(e.target.elements.area.value) : null;
+    const minPrice = e.target.elements.minPrice.value ? parseFloat(e.target.elements.minPrice.value) : null;
+    const maxPrice = e.target.elements.maxPrice.value ? parseFloat(e.target.elements.maxPrice.value) : null;
+  
+    // Filter all criteria in one go
+    filteredFlats = flats.filter(flat => {
+      const matchesCity = city ? flat.city.toLowerCase().includes(city) : true;
+      const matchesArea = area ? parseInt(flat.areaSize) <= area : true;
+      const matchesMinPrice = minPrice ? parseFloat(flat.rentPrice) >= minPrice : true;
+      const matchesMaxPrice = maxPrice ? parseFloat(flat.rentPrice) <= maxPrice : true;
+  
+      return matchesCity && matchesArea && matchesMinPrice && matchesMaxPrice;
+    });
+
+    totalPages = Math.ceil(filteredFlats.length / flatsPerPage);
+
+    // Reset to the first page after filtering
+    currentPage = 1;
+
+    displayFlats(currentPage);
+    updatePaginationControls();
+  });
 });
