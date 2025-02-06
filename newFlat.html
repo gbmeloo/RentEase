@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Default sylization -->
     <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./Pages/NewFlat/newFlatStyle.css" />
+    <link rel="stylesheet" href="./Pages/NewFlat/style.css" />
     <!-- Needed libraries -->
     <script type="module" src="./Pages/NewFlat/script.js"></script>
     <title>Document</title>
@@ -14,7 +14,7 @@
     <div class="register-container">
       <div class="form-section">
         <h2 class="title">Register</h2>
-        <form class="form" id="register-form">
+        <form class="form" id="flat-form">
           <div class="info">
             <div class="input-div city">
               <label class="label">City</label>
@@ -58,34 +58,58 @@
               name="areaSize"
             />
           </div>
+          <div class="input-div hasAC">
+            <label class="label">Has Air Conditioning?</label>
+            <div class="radio-options">
+              <label>
+                <input
+                  type="radio"
+                  id="hasAC-yes"
+                  name="hasAC"
+                  value="true"
+                  checked
+                />
+                Yes
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  id="hasAC-no"
+                  name="hasAC"
+                  value="false"
+                />
+                No
+              </label>
+            </div>
+          </div>
           <div class="input-div yearBuilt">
-            <label class="label">yearBuilt</label>
+            <label class="label">Year Built</label>
             <input
               type="number"
               class="input"
               placeholder="Enter the year built"
-              id="password"
-              name="password"
+              id="yearBuilt"
+              name="yearBuilt"
             />
           </div>
           <div class="input-div rentPrice">
-            <label class="label">Date available</label>
+            <label class="label">Rent price</label>
             <input
               type="number"
               class="input"
-              placeholder="Enter the available date"
+              placeholder="Enter rent price"
               id="rentPrice"
               name="rentPrice"
             />
           </div>
-          <div class="input-div images">
-            <label class="label">Images</label>
+          <div class="input-div dateAvailble">
+            <label class="label">Date available</label>
             <input
-              type="file"
+              type="date"
               class="input"
-              placeholder="Get images"
-              id="images"
-              name="images"
+              placeholder="Enter the available date"
+              id="dateAvailable"
+              name="dateAvailable"
             />
           </div>
           <button class="button">Publish</button>

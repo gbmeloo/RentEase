@@ -1,9 +1,8 @@
 import Header from "../../Components/Header.js";
-import { flats } from "../../Tools/Flats.js";
-import { search } from "../../Tools/Search.js"  
 
 const sessionData = JSON.parse(sessionStorage.getItem("email"));
 const userData = sessionData ? JSON.parse(localStorage.getItem(sessionData.email)) : "";
+const flats = JSON.parse(localStorage.getItem("flats"));
 
 document.addEventListener("DOMContentLoaded", (e) => {
   var header = new Header(userData);
