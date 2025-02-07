@@ -37,5 +37,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     const newFlat = new Flat(city, streetName, streetNumber, areaSize, hasAC, yearBuilt, rentPrice, dateAvailable);
     newFlat.save();
+
+    window.location.href = "/index.html";
   });
 });

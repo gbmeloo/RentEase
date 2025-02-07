@@ -87,38 +87,78 @@ body {
 
 .search-form {
   display: flex;
-  align-items: center; /* Vertically center the button */
-  justify-content: center; /* Horizontally center the button */
-  max-width: 800px;
-  margin: 10vh auto;
-  gap: 20px; /* Add some space between the search box and the button */
+  flex-direction: column; /* Stack the elements vertically */
+  align-items: center; /* Horizontally center the form */
+  justify-content: center;
+  max-width: 500px;
+  margin: 3vh auto;
 }
 
 .search-box {
   display: flex;
-  flex-direction: column; /* Stack city-area-size and price-range vertically */
-  gap: 20px; /* Add space between the input groups */
+  flex-direction: row; /* Stack city-area-size, price-range, and sort-by-price vertically */
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* Space between the input groups */
+  width: 100%; /* Allow the search-box to use the full width of the container */
 }
 
 .city-area-size,
 .price-range {
   display: flex;
-  gap: 20px; /* Add space between the inputs */
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+  justify-content: space-between; /* Ensure the inputs take up space evenly */
+}
+
+.sort-by-price {
+  display: flex;
+  flex-direction: column; /* Stack the label and select vertically */
+  gap: 5px; /* Space between the label and select dropdown */
+  width: 50%;
+  margin: 20px 0;
+}
+
+.sort-by-price select {
+  height: 40px; 
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer; 
+}
+
+.sort-by-price select:focus {
+  outline: none; /* Remove outline on focus for a cleaner look */
+  border-color: rgb(0, 62, 149); /* Highlight the border when focused */
+  box-shadow: 0 0 8px rgba(0, 62, 149, 0.3); /* Add glow effect when focused */
 }
 
 .search-box input {
-  width: 280px;
-  height: 20px;
+  height: 20px; /* Adjust height for better balance */
   border: none;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  font-size: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px;
+  font-size: 16px; 
+}
+
+.search-box input:focus {
+  outline: none; /* Remove outline on focus for a cleaner look */
+  border-color: rgb(0, 62, 149);
+  box-shadow: 0 0 8px rgba(0, 62, 149, 0.3); 
 }
 
 .search-button input {
-  width: 100px;
-  height: 60px;
+  width: 120px;
+  height: 30px;
   border: none;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -128,7 +168,11 @@ body {
   cursor: pointer;
 }
 
-.search-box input::placeholder{
+.search-button input:hover {
+  background-color: rgb(0, 49, 120); /* Slightly darker on hover */
+}
+
+.search-box input::placeholder {
   font-style: italic;
 }
 
@@ -149,7 +193,6 @@ body {
   align-items: center;  /* Centers the items */
   max-width: 1000px; /* Prevents overflow */
   margin: 0 auto;
-  /* border: solid 1px dodgerblue; */
   border-radius: 20px;
   padding: 20px 0 0 0 ;
   font-family: 'Roboto';
@@ -340,7 +383,7 @@ body {
   }
 
   .search-box {
-    width: 100%; /* Make search-box take full width */
+    width: 90%; /* Make search-box take full width */
   }
 
   .city-area-size,
@@ -354,12 +397,6 @@ body {
     margin-bottom: 10px; /* Add space between inputs */
     padding: 10px 15px 10px 15px;
     font-size: 16px;
-  }
-
-  .search-button input {
-    width: 100%; /* Make button take full width */
-    height: 50px; /* Adjust button height */
-    padding: 0 100px;
   }
 
 }

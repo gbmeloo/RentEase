@@ -247,6 +247,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     const area = e.target.elements.area.value ? parseFloat(e.target.elements.area.value) : null;
     const minPrice = e.target.elements.minPrice.value ? parseFloat(e.target.elements.minPrice.value) : null;
     const maxPrice = e.target.elements.maxPrice.value ? parseFloat(e.target.elements.maxPrice.value) : null;
+    const sort = e.target.elements.sortPrice.value;
   
     // Filter all criteria
     filteredFlats = flats.filter(flat => {
@@ -258,6 +259,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
       return matchesCity && matchesArea && matchesMinPrice && matchesMaxPrice;
     });
 
+    if (sort === "asc") {
+      filteredFlats.sort((a, b) => a.rentPrice - b.rentPrice);
+    } else if (sort === "desc") {
+      filteredFlats.sort((a, b) => b.rentPrice - a.rentPrice);
+    }
+    
     totalPages = Math.ceil(filteredFlats.length / flatsPerPage);
 
     // Reset to the first page after filtering
